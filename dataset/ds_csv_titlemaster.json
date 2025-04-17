@@ -1,0 +1,34 @@
+{
+	"name": "ds_csv_titlemaster",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blobstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "TitleMaster.csv",
+				"folderPath": "dirpayrollfiles",
+				"container": "adlsnycpayrolljaspervs"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "TitleCode",
+				"type": "Int32"
+			},
+			{
+				"name": "TitleDescription",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

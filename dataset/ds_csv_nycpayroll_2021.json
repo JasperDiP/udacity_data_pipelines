@@ -1,0 +1,102 @@
+{
+	"name": "ds_csv_nycpayroll_2021",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_blobstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "nycpayroll_2021.csv",
+				"folderPath": "dirpayrollfiles",
+				"container": "adlsnycpayrolljaspervs"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "FiscalYear",
+				"type": "Int32"
+			},
+			{
+				"name": "PayrollNumber",
+				"type": "Int32"
+			},
+			{
+				"name": "AgencyCode",
+				"type": "String"
+			},
+			{
+				"name": "AgencyName",
+				"type": "String"
+			},
+			{
+				"name": "EmployeeID",
+				"type": "Int32"
+			},
+			{
+				"name": "LastName",
+				"type": "String"
+			},
+			{
+				"name": "FirstName",
+				"type": "String"
+			},
+			{
+				"name": "AgencyStartDate",
+				"type": "DateTime"
+			},
+			{
+				"name": "WorkLocationBorough",
+				"type": "String"
+			},
+			{
+				"name": "TitleCode",
+				"type": "String"
+			},
+			{
+				"name": "TitleDescription",
+				"type": "String"
+			},
+			{
+				"name": "LeaveStatusasofJune30",
+				"type": "String"
+			},
+			{
+				"name": "BaseSalary",
+				"type": "Decimal"
+			},
+			{
+				"name": "PayBasis",
+				"type": "String"
+			},
+			{
+				"name": "RegularHours",
+				"type": "Decimal"
+			},
+			{
+				"name": "RegularGrossPaid",
+				"type": "Decimal"
+			},
+			{
+				"name": "OTHours",
+				"type": "Decimal"
+			},
+			{
+				"name": "TotalOTPaid",
+				"type": "Decimal"
+			},
+			{
+				"name": "TotalOtherPay",
+				"type": "Decimal"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
