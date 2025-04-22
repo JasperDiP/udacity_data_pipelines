@@ -20,11 +20,7 @@
 						"type": "DataFlowReference"
 					},
 					"staging": {
-						"linkedService": {
-							"referenceName": "AzureDataLakeStorage1",
-							"type": "LinkedServiceReference"
-						},
-						"folderPath": "adlsnycpayrolljaspervs/dirstaging"
+						"folderPath": ""
 					},
 					"compute": {
 						"coreCount": 8,
@@ -70,11 +66,7 @@
 						"type": "DataFlowReference"
 					},
 					"staging": {
-						"linkedService": {
-							"referenceName": "AzureDataLakeStorage1",
-							"type": "LinkedServiceReference"
-						},
-						"folderPath": "adlsnycpayrolljaspervs/dirstaging"
+						"folderPath": ""
 					},
 					"compute": {
 						"coreCount": 8,
@@ -101,11 +93,7 @@
 						"type": "DataFlowReference"
 					},
 					"staging": {
-						"linkedService": {
-							"referenceName": "AzureDataLakeStorage1",
-							"type": "LinkedServiceReference"
-						},
-						"folderPath": "adlsnycpayrolljaspervs/dirstaging"
+						"folderPath": ""
 					},
 					"compute": {
 						"coreCount": 8,
@@ -132,11 +120,7 @@
 						"type": "DataFlowReference"
 					},
 					"staging": {
-						"linkedService": {
-							"referenceName": "AzureDataLakeStorage1",
-							"type": "LinkedServiceReference"
-						},
-						"folderPath": "adlsnycpayrolljaspervs/dirstaging"
+						"folderPath": ""
 					},
 					"compute": {
 						"coreCount": 8,
@@ -182,11 +166,7 @@
 						"type": "DataFlowReference"
 					},
 					"staging": {
-						"linkedService": {
-							"referenceName": "AzureDataLakeStorage1",
-							"type": "LinkedServiceReference"
-						},
-						"folderPath": "adlsnycpayrolljaspervs/dirstaging"
+						"folderPath": ""
 					},
 					"compute": {
 						"coreCount": 8,
@@ -229,11 +209,7 @@
 						}
 					},
 					"staging": {
-						"linkedService": {
-							"referenceName": "AzureDataLakeStorage1",
-							"type": "LinkedServiceReference"
-						},
-						"folderPath": "adlsnycpayrolljaspervs/dirstaging"
+						"folderPath": ""
 					},
 					"compute": {
 						"coreCount": 8,
