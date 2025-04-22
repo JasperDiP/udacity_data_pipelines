@@ -2,7 +2,7 @@
 	"name": "ds_nyc_payroll_data_2021",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_sqlbasicserver",
+			"referenceName": "AzureSqlDatabase1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

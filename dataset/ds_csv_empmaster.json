@@ -2,17 +2,17 @@
 	"name": "ds_csv_empmaster",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_blobstorage",
+			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
+				"type": "AzureBlobFSLocation",
 				"fileName": "EmpMaster.csv",
 				"folderPath": "dirpayrollfiles",
-				"container": "adlsnycpayrolljaspervs"
+				"fileSystem": "adlsnycpayrolljaspervs"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
