@@ -1,5 +1,5 @@
 {
-	"name": "CsvToDb",
+	"name": "DataFlowAgency",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -10,34 +10,6 @@
 						"type": "DatasetReference"
 					},
 					"name": "csvAgency"
-				},
-				{
-					"dataset": {
-						"referenceName": "ds_csv_empmaster",
-						"type": "DatasetReference"
-					},
-					"name": "csvEmployee"
-				},
-				{
-					"dataset": {
-						"referenceName": "ds_csv_nycpayroll_2021",
-						"type": "DatasetReference"
-					},
-					"name": "csvPayroll2021"
-				},
-				{
-					"dataset": {
-						"referenceName": "ds_csv_titlemaster",
-						"type": "DatasetReference"
-					},
-					"name": "csvTitle"
-				},
-				{
-					"dataset": {
-						"referenceName": "ds_csv_nycpayroll_2020",
-						"type": "DatasetReference"
-					},
-					"name": "csvPayroll2020"
 				}
 			],
 			"sinks": [
@@ -47,34 +19,6 @@
 						"type": "DatasetReference"
 					},
 					"name": "dbAgency"
-				},
-				{
-					"dataset": {
-						"referenceName": "ds_nyc_payroll_emp_md",
-						"type": "DatasetReference"
-					},
-					"name": "dbEmployee"
-				},
-				{
-					"dataset": {
-						"referenceName": "ds_nyc_payroll_data_2021",
-						"type": "DatasetReference"
-					},
-					"name": "dbPayroll2021"
-				},
-				{
-					"dataset": {
-						"referenceName": "ds_nyc_payroll_title_md",
-						"type": "DatasetReference"
-					},
-					"name": "dbTitle"
-				},
-				{
-					"dataset": {
-						"referenceName": "ds_nyc_payroll_data_2020",
-						"type": "DatasetReference"
-					},
-					"name": "dbPayroll2020"
 				}
 			],
 			"transformations": [],
@@ -86,69 +30,6 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> csvAgency",
-				"source(output(",
-				"          EmployeeID as integer,",
-				"          LastName as string,",
-				"          FirstName as string",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> csvEmployee",
-				"source(output(",
-				"          FiscalYear as integer,",
-				"          PayrollNumber as integer,",
-				"          AgencyCode as string,",
-				"          AgencyName as string,",
-				"          EmployeeID as integer,",
-				"          LastName as string,",
-				"          FirstName as string,",
-				"          AgencyStartDate as timestamp,",
-				"          WorkLocationBorough as string,",
-				"          TitleCode as string,",
-				"          TitleDescription as string,",
-				"          LeaveStatusasofJune30 as string,",
-				"          BaseSalary as decimal(10,0),",
-				"          PayBasis as string,",
-				"          RegularHours as decimal(10,0),",
-				"          RegularGrossPaid as decimal(10,0),",
-				"          OTHours as decimal(10,0),",
-				"          TotalOTPaid as decimal(10,0),",
-				"          TotalOtherPay as decimal(10,0)",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> csvPayroll2021",
-				"source(output(",
-				"          TitleCode as integer,",
-				"          TitleDescription as string",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> csvTitle",
-				"source(output(",
-				"          FiscalYear as integer,",
-				"          PayrollNumber as integer,",
-				"          AgencyCode as string,",
-				"          AgencyName as string,",
-				"          EmployeeID as integer,",
-				"          LastName as string,",
-				"          FirstName as string,",
-				"          AgencyStartDate as timestamp,",
-				"          WorkLocationBorough as string,",
-				"          TitleCode as string,",
-				"          TitleDescription as string,",
-				"          LeaveStatusasofJune30 as string,",
-				"          BaseSalary as decimal(10,0),",
-				"          PayBasis as string,",
-				"          RegularHours as decimal(10,0),",
-				"          RegularGrossPaid as decimal(10,0),",
-				"          OTHours as decimal(10,0),",
-				"          TotalOTPaid as decimal(10,0),",
-				"          TotalOtherPay as decimal(10,0)",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false) ~> csvPayroll2020",
 				"csvAgency sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -162,98 +43,7 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> dbAgency",
-				"csvEmployee sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     input(",
-				"          EmployeeID as string,",
-				"          LastName as string,",
-				"          FirstName as string",
-				"     ),",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:false,",
-				"     format: 'table',",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> dbEmployee",
-				"csvPayroll2021 sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     input(",
-				"          FiscalYear as integer,",
-				"          PayrollNumber as integer,",
-				"          AgencyCode as string,",
-				"          AgencyName as string,",
-				"          EmployeeID as string,",
-				"          LastName as string,",
-				"          FirstName as string,",
-				"          AgencyStartDate as date,",
-				"          WorkLocationBorough as string,",
-				"          TitleCode as string,",
-				"          TitleDescription as string,",
-				"          LeaveStatusasofJune30 as string,",
-				"          BaseSalary as double,",
-				"          PayBasis as string,",
-				"          RegularHours as double,",
-				"          RegularGrossPaid as double,",
-				"          OTHours as double,",
-				"          TotalOTPaid as double,",
-				"          TotalOtherPay as double",
-				"     ),",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:false,",
-				"     format: 'table',",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> dbPayroll2021",
-				"csvTitle sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     input(",
-				"          TitleCode as string,",
-				"          TitleDescription as string",
-				"     ),",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:false,",
-				"     format: 'table',",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> dbTitle",
-				"csvPayroll2020 sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     input(",
-				"          FiscalYear as integer,",
-				"          PayrollNumber as integer,",
-				"          AgencyID as string,",
-				"          AgencyName as string,",
-				"          EmployeeID as string,",
-				"          LastName as string,",
-				"          FirstName as string,",
-				"          AgencyStartDate as date,",
-				"          WorkLocationBorough as string,",
-				"          TitleCode as string,",
-				"          TitleDescription as string,",
-				"          LeaveStatusasofJune30 as string,",
-				"          BaseSalary as double,",
-				"          PayBasis as string,",
-				"          RegularHours as double,",
-				"          RegularGrossPaid as double,",
-				"          OTHours as double,",
-				"          TotalOTPaid as double,",
-				"          TotalOtherPay as double",
-				"     ),",
-				"     deletable:false,",
-				"     insertable:true,",
-				"     updateable:false,",
-				"     upsertable:false,",
-				"     format: 'table',",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> dbPayroll2020"
+				"     errorHandlingOption: 'stopOnFirstError') ~> dbAgency"
 			]
 		}
 	}
